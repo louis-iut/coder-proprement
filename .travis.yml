@@ -8,6 +8,7 @@ android:
   - android-26
   - extra-google-m2repository
   - extra-android-m2repository
+
 notifications:
   slack: lp-iem:5VypeA9fibvKjUR6g85WcL2w
 
@@ -20,6 +21,16 @@ cache:
   - "$HOME/.gradle/wrapper"
 
 before_script:
-- chmod +x ./build-apk.sh
+- chmod +x ./build.sh
 script:
-- "./build-apk.sh"
+- "./build.sh"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: I3spVCrt3g6mmzti3BXfRrSyrWBN7SOqBFW18V6tfs/t6v4JaNAk6o2qIlrl+z2A3tg9yxBArog44OXOi4WzbgOkmyWsGZhGuwMWWjv0k1ywkGsCdxoLQ5ZTCw6LlWxOCCdYBBMRA4HliQV97fkAgVGg/I+/cbN/3lm6EsTNRs0tvEMqAIeHNDvMKnggvSdiCTxpaxEDl5iRxPmi+Wv2oc/LSzE+22ZW9UlO1ZYd/rWoCd6TdBrgng4tcm1db/fEgFXlW17xLapYQIn1YoK/O9yEQ2CkfGpi/kyBTxxSR7dIpqGQon3eK44o90m7SEz1f8oLNjSyCXND6UwOsa7Dt2UarBlCkeM/7MMjV+YG4t1v76dc9+yoLksNipcPI8JoXX3mH5hPDnWmLWYD5QkuPcZNCYqw09KjJXNp6q8WCcbJizZZ7GJ1/ulz3MGEd5p3pvTZBvk1fVJ7JlRnh7JJwlSdeJxTU5yaO8XMWou2/FLCwwUwQnPvY4YRHc+D1J2YgLPtZs0x/VSGPGAEUqIkcFLK/z3wbGIElhEG7ZZAjmrsK7VuBLodE4a72UoS8tdWzI4N95qSIaK5h1wJdpyoLHqLgk3b4GK0LyYcHtliv2AHkOdZXjNhbVodD9DeilJynOb8jYV0JWgqWqCvAmQbZz0PvHw5XC1CLfjKMvopqB8=
+  skip_cleanup: true
+  file_glob: true
+  file: "./app/build/outputs/apk/release/*.apk"
+  on:
+    repo: louis-iut/coder-proprement
