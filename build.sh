@@ -1,16 +1,19 @@
-
 chmod +x gradlew
 
 ./gradlew clean
-./gradlew assembleDebugUnitTest
-./gradlew build
+./gradlew testReleaseUnitTest
 
-chemin='/app/build/outputs/apk'
-var1="app/build/"
-var2=`date +%Y-%m-%d`
-var3=".apk"
-link=$var1$var2$var3
-mv app/build/outputs/apk/app-debug.apk $link
+if [[ "$TRAVIS_BRANCH" == "master" ]]
+then
 
-echo "fichier "$var2$var3" généré vers "$link
+  echo $TRAVIS_COMMIT
+  ./gradlew assembleRelease
 
+  date=`date +%Y-%m-%d`
+  chemin='./app/build/outputs/apk/release/'
+  oldApk=$chemin'app-release-unsigned.apk'
+  newApk=$chemin'release_'$date'.apk'
+
+  mv $oldApk $newApk
+
+fi
