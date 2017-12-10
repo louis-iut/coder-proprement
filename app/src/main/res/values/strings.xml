@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Comics</string>
+    <string name="file_reading_error">Error to read file</string>
+    <string name="charset_name">UTF-8</string>
 </resources>
