@@ -3,4 +3,7 @@
     <string name="file_reading_error">Error to read file</string>
     <string name="charset_name">UTF-8</string>
     <string name="json_date_format">"yyyy-MM-dd'T'HH:mm:ssZ"</string>
+
+    <string name="json_ok">sample-ok.json</string>
+    <string name="json_ko">sample-ko.json</string>
 </resources>
