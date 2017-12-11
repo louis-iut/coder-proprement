@@ -8,7 +8,7 @@ android:
   - android-26
   - extra-google-m2repository
   - extra-android-m2repository
-  
+
 notifications:
   slack: lp-iem:5VypeA9fibvKjUR6g85WcL2w
 
@@ -29,6 +29,8 @@ deploy:
   provider: releases
   api_key:
     secure: Cj1hkhmwJVmgh4ge8/DQQmnW8Gs3eWB0PnNLF3eE/3EfODU8bcCl9wlt1rXCNhAxXA5BjhRfHUh/Xy8kl4KVzXadxLfV4r8blZhK+zxhxKcDVtoxgkKAWEQWxQvCO77thCkvfvcnyI1J6h//FfQ4lBqIrX19bxJelpAgUXvm+A08S2Bv/YE6NZciCQtz+Gwn7QSV0NK61rfxqLQL+zc4EsMDzwh74FiCGitHOKg9p1CcPbnNsoXGstahwJg1PsRRmqTDsJ4gMs9HADlz/XQWQJvfAwF+UrsiW5nYXdwLxZ4UCOLFiaiI3R01pQFQUxGCZ3DnLIr8W0SbK5IwZ/JOZ3uIXxeCfrVuQAOyJB7qhPubwXlOm3kxeMrXpkdf1vDzQISb3KYaGAhIMy/A+ECO7FbLHlOxkSlRq1MC+3h6EYNqR5evSrPst1lV0dESf8ZfztiNSEYkTMBxvAFYCdtAZY9mL//D0Q4YFyhp30lN+vhDuvxd3MfL9RfgQoPpws/8bBeiKN3FaGxq0Mz4pzIRDoFzaUJFq3L1YiuCfPiIktAlWsvX/TcaMhcE/SsTlV2H3weSms4WI+G7ldcqmBNLYpAfMwyzWllW+/Q/zIWUFpw0CcRYNwGTACnV6ZIl/gJokfa5AVlAojpvnDjLXaxoi//IeQtdi5ZPsa7Gja44Tik=
+  skip_cleanup: true
+  file_glob: true
   file: "./app/build/outputs/apk/release/*.apk"
   on:
     repo: louis-iut/coder-proprement
