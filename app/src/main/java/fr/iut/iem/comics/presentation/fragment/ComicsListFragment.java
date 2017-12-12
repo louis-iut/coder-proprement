@@ -6,15 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import fr.iut.iem.comics.R;
+import fr.iut.iem.comics.data.model.remote.Comics;
+import fr.iut.iem.comics.presentation.view.ComicsListView;
 
 /**
  * Created by iem on 12/12/2017.
  */
 
-public class ComicsListFragment extends Fragment{
+public class ComicsListFragment extends Fragment implements ComicsListView{
 
-    public static ComicsListFragment  newinstance(){
+    public static ComicsListFragment newInstance(){
         ComicsListFragment fragment = new ComicsListFragment();
         return fragment;
     }
@@ -25,4 +29,8 @@ public class ComicsListFragment extends Fragment{
         return view;
     }
 
+    @Override
+    public void updateList(List<Comics> comicsList) {
+
+    }
 }
