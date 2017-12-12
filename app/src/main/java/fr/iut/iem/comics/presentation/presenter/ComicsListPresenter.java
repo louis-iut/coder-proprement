@@ -70,4 +70,8 @@ public class ComicsListPresenter {
     private ComicsViewModel comicsToComicsViewModel(Comics comics) {
         return new ComicsViewModel(comics);
     }
+
+    public void onClickOnComicsInList(int id) {
+        comicsNavigatorListener.displayComicsDetail(id);
+    }
 }

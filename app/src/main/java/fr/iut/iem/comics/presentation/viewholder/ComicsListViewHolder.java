@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import fr.iut.iem.comics.data.model.remote.Comics;
+import fr.iut.iem.comics.presentation.listener.ComicsListListener;
+import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
 
 /**
  * Created by iem on 12/12/2017.
@@ -15,7 +17,7 @@ public class ComicsListViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
     }
 
-    public void bind(Context context, Comics comics){
+    public void bind(Context context, ComicsViewModel comics, ComicsListListener comicsListListener){
 
     }
 
