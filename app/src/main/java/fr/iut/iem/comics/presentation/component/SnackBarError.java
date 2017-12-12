@@ -13,7 +13,7 @@ import fr.iut.iem.comics.R;
 public class SnackBarError implements DisplayError{
 
     @Override
-    public void displayError(View view, int message) {
+    public void displayError(View view, String message) {
         Snackbar snackbar = Snackbar
                 .make(view, message, Snackbar.LENGTH_LONG);
         View snackbarView = snackbar.getView();
