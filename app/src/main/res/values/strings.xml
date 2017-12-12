@@ -1,12 +1,23 @@
 <resources>
     <string name="app_name">Comics</string>
-    <string name="file_reading_error">Error to read file</string>
     <string name="charset_name">UTF-8</string>
+
+    <!-- date format -->
     <string name="json_date_format">"yyyy-MM-dd'T'HH:mm:ssZ"</string>
 
+    <!-- json files -->
     <string name="json_ok">sample-ok.json</string>
     <string name="json_ko">sample-ko.json</string>
 
     <!--Error-->
     <string name="toast_connection">No connection</string>
+    <string name="file_reading_error">Error to read file</string>
+
+    <string name="intent_type_text">text/plain</string>
+    <string name="intent_sharing_message">Share via</string>
+
+    <string name="comics_list_view">comicsListView</string>
+    <string name="comics_detail_view">comicsDetailView</string>
+
+
 </resources>
