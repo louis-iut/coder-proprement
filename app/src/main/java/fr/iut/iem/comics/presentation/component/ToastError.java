@@ -18,7 +18,7 @@ public class ToastError implements DisplayError {
     }
 
     @Override
-    public void displayError(View view, int message) {
+    public void displayError(View view, String message) {
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, message, duration);

@@ -10,7 +10,7 @@
     <string name="json_ko">sample-ko.json</string>
 
     <!--Error-->
-    <string name="toast_connection">No connection</string>
+    <string name="connection_message_error">No connection</string>
     <string name="file_reading_error">Error to read file</string>
 
     <string name="intent_type_text">text/plain</string>
