@@ -6,4 +6,7 @@
 
     <string name="json_ok">sample-ok.json</string>
     <string name="json_ko">sample-ko.json</string>
+
+    <!--Error-->
+    <string name="toast_connection">No connection</string>
 </resources>
