@@ -24,8 +24,8 @@ public class ComicsApp extends Application {
         super.onCreate();
 
         application = this;
-        //jsonFile = getString(R.string.json_ok);
-        jsonFile = getString(R.string.json_ko);
+        jsonFile = getString(R.string.json_ok);
+        //jsonFile = getString(R.string.json_ko);
         comicsRepository = new ComicsRepository(new ComicsApiManagerImpl(this, jsonFile));
         displayError = new ToastError(this);
     }

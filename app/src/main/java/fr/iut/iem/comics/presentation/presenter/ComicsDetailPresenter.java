@@ -1,7 +1,5 @@
 package fr.iut.iem.comics.presentation.presenter;
 
-import android.util.Log;
-
 import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.data.repository.ComicsRepository;
 import fr.iut.iem.comics.presentation.listener.ComicsNavigatorListener;
@@ -22,9 +20,9 @@ public class ComicsDetailPresenter {
     private ComicsNavigatorListener comicsNavigatorListener;
     private ComicsRepository comicsRepository;
 
-    public ComicsDetailPresenter(ComicsDetailView comicsDetailView,
-                                 ComicsNavigatorListener comicsNavigatorListener,
-                                 ComicsRepository comicsRepository) {
+    public ComicsDetailPresenter(ComicsNavigatorListener comicsNavigatorListener,
+                                 ComicsRepository comicsRepository,
+                                 ComicsDetailView comicsDetailView) {
         this.comicsDetailView = comicsDetailView;
         this.comicsNavigatorListener = comicsNavigatorListener;
         this.comicsRepository = comicsRepository;
@@ -48,7 +46,7 @@ public class ComicsDetailPresenter {
 
                     @Override
                     public void onNext(Comics comicsEntity) {
-                        comicsDetailView.updateComics(new ComicsViewModel(comicsEntity));
+                        comicsDetailView.displayComics(new ComicsViewModel(comicsEntity));
                     }
                 });
     }

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import fr.iut.iem.comics.R;
+import fr.iut.iem.comics.presentation.fragment.ComicsDetailFragment;
 import fr.iut.iem.comics.presentation.fragment.ComicsListFragment;
 import fr.iut.iem.comics.presentation.view.ComicsDetailView;
 import fr.iut.iem.comics.presentation.view.ComicsListView;
@@ -35,14 +36,22 @@ public class ComicsNavigator {
         fragmentManager
                 .beginTransaction()
                 .addToBackStack(context.getString(R.string.comics_list_view))
-                .add(R.id.root_layout, (Fragment) comicsListView)
+                .replace(R.id.root_layout, (Fragment) comicsListView)
                 .commit();
 
         currentFragment = COMICS_LIST_FRAGMENT;
     }
 
     public void launchDetailFragment(int id) {
-        ComicsDetailView comicsDetailView;
+        ComicsDetailView comicsDetailView = ComicsDetailFragment.newInstance(id);
+
+        fragmentManager
+                .beginTransaction()
+                .addToBackStack(context.getString(R.string.comics_detail_view))
+                .replace(R.id.root_layout, (Fragment) comicsDetailView)
+                .commit();
+
+        currentFragment = COMICS_DETAIL_FRAGMENT;
     }
 
     public void backAction() {

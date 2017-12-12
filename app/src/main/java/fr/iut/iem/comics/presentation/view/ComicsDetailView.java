@@ -7,6 +7,6 @@ import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
  */
 
 public interface ComicsDetailView {
-    void updateComics(ComicsViewModel comicsViewModel);
+    void displayComics(ComicsViewModel comicsViewModel);
     void displayError();
 }
