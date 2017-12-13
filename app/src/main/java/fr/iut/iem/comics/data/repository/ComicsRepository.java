@@ -38,11 +38,11 @@ public class ComicsRepository {
         });
     }
 
-    private Observable<List<Comics>> getApi() {
-        return Observable.defer(new Func0<Observable<List<Comics>>>() {
+    public Observable<Comics> getComicsById(final int id) {
+        return getComicsList().map(new Func1<List<Comics>, Comics>() {
             @Override
-            public Observable<List<Comics>> call() {
-                return Observable.just(comicsApiManager.getComicsList());
+            public Comics call(List<Comics> comicsList) {
+                return findComicsWithId(comicsList, id);
             }
         });
     }
@@ -54,5 +54,24 @@ public class ComicsRepository {
                 return Observable.just(comicsCacheManager.getComicsList());
             }
         });
+    }
+
+    private Observable<List<Comics>> getApi() {
+        return Observable.defer(new Func0<Observable<List<Comics>>>() {
+            @Override
+            public Observable<List<Comics>> call() {
+                return Observable.just(comicsApiManager.getComicsList());
+            }
+        });
+    }
+
+    private Comics findComicsWithId(List<Comics> comicsList, int id) {
+        for (Comics comics : comicsList) {
+            if (comics.getId() == id) {
+                return comics;
+            }
+        }
+
+        return null;
     }
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Comics List -->
     <dimen name="const_8dp">8dp</dimen>
     <dimen name="const_15dp">15dp</dimen>
     <dimen name="const_16dp">16dp</dimen>
     <dimen name="const_72dp">72dp</dimen>
     <dimen name="const_80dp">80dp</dimen>
+
+    <!-- Comics Detail -->
+    <dimen name="comics_detail_title_size">24sp</dimen>
+    <dimen name="comics_detail_margins">16dp</dimen>
+    <dimen name="comics_detail_image_height">240dp</dimen>
+    <dimen name="comics_detail_image_width">150dp</dimen>
+
+
 </resources>

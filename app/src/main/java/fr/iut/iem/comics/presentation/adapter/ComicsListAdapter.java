@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.iut.iem.comics.R;
-import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.presentation.listener.ComicsListListener;
-import fr.iut.iem.comics.presentation.listener.ComicsNavigatorListener;
 import fr.iut.iem.comics.presentation.viewholder.ComicsListViewHolder;
 import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
 
@@ -26,6 +25,7 @@ public class ComicsListAdapter extends RecyclerView.Adapter<ComicsListViewHolder
     private List<ComicsViewModel> comicsList;
 
     public ComicsListAdapter(Context context, ComicsListListener comicsListListener){
+        this.comicsList = new ArrayList<>();
         this.context = context;
         this.comicsListListener = comicsListListener;
     }
@@ -39,6 +39,7 @@ public class ComicsListAdapter extends RecyclerView.Adapter<ComicsListViewHolder
     public ComicsListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.view_holder_comics, parent, false);
+
         return new ComicsListViewHolder(view);
     }
 

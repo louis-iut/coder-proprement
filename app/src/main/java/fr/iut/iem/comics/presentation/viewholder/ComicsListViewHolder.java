@@ -33,13 +33,13 @@ public class ComicsListViewHolder extends RecyclerView.ViewHolder{
     public void bind(Context context, final ComicsViewModel comics, final ComicsListListener comicsListListener){
         title.setText(comics.getTitle());
         date.setText(comics.getDate(context));
-        pageCount.setText(comics.getPageCount());
+        pageCount.setText(comics.getPageCount(context));
         Picasso.with(context).load(comics.getImage()).into(comicsImage);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                comicsListListener.onClickOnComicsInList(comics.getId());
+                comicsListListener.onClickOnComicsInList(comics.getComics().getId());
             }
         });
     }

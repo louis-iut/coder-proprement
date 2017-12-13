@@ -1,33 +1,32 @@
 <resources>
+
     <string name="app_name">Comics</string>
     <string name="charset_name">UTF-8</string>
 
-    <!-- date format -->
+    <!-- date formats -->
     <string name="json_date_format">"yyyy-MM-dd'T'HH:mm:ssZ"</string>
-    <string name="detail_view_date_format">EEE d MMM yyyy</string>
+    <string name="detail_view_date_format">EEEE d MMMM yyyy</string>
 
     <!-- json files -->
     <string name="json_ok">sample-ok.json</string>
     <string name="json_ko">sample-ko.json</string>
-    <string name="fragment_text_view_titre">Titre</string>
-    <string name="fragment_text_view_date">Date</string>
-    <string name="fragment_text_view_pagecount">Pagecount</string>
 
-    <!-- comicsviewmodel -->
-    <string name="comicsviewmodel_creators_header">"-Creators : '\n'"</string>
+    <!-- comics view-model -->
+    <string name="comicsviewmodel_creators_header">Creators \n</string>
+    <string name="comicsviewmodel_page_count"> pages</string>
+    <string name="comicsviewmodel_devise">$</string>
 
-    <!--Error-->
+    <!-- errors -->
     <string name="connection_message_error">No connection</string>
     <string name="file_reading_error">Error to read file</string>
     <string name="date_parse_error">Error to parse date</string>
 
+    <!-- intents -->
     <string name="intent_type_text">text/plain</string>
     <string name="intent_sharing_message">Share via</string>
 
+    <!-- fragments management -->
     <string name="comics_list_view">comicsListView</string>
     <string name="comics_detail_view">comicsDetailView</string>
-
-
-
 
 </resources>

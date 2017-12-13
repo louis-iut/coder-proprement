@@ -3,7 +3,6 @@ package fr.iut.iem.comics.presentation.viewmodel;
 import android.content.Context;
 import android.util.Log;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +24,10 @@ public class ComicsViewModel {
         this.comics = comics;
     }
 
+    public Comics getComics() {
+        return comics;
+    }
+
     public String getTitle() {
         return comics.getTitle();
     }
@@ -39,13 +42,13 @@ public class ComicsViewModel {
 
     public String getDate(Context context) {
 
-        SimpleDateFormat preFormater = new SimpleDateFormat(context.getString(R.string.json_date_format));
-        DateFormat dateFormat = null;
-        SimpleDateFormat postFormater = new SimpleDateFormat(context.getString(R.string.detail_view_date_format));
-        String newDateString = null;
+        String newDateString;
 
         try
         {
+            SimpleDateFormat preFormater = new SimpleDateFormat(context.getString(R.string.json_date_format));
+            SimpleDateFormat postFormater = new SimpleDateFormat(context.getString(R.string.detail_view_date_format));
+
             Date date = preFormater.parse(comics.getDate());
             newDateString = postFormater.format(date);
         }
@@ -58,12 +61,12 @@ public class ComicsViewModel {
         return newDateString;
     }
 
-    public String getPrice() {
-        return comics.getPrice() + "$";
+    public String getPrice(Context context) {
+        return comics.getPrice() + context.getString(R.string.comicsviewmodel_devise);
     }
 
-    public String getPageCount() {
-        return Integer.toString(comics.getPageCount());
+    public String getPageCount(Context context) {
+        return comics.getPageCount() + context.getString(R.string.comicsviewmodel_page_count);
     }
 
     public String getImage() {
@@ -84,9 +87,5 @@ public class ComicsViewModel {
         String creatorsList = new String(creatorsListBuilder);
 
         return creatorsList;
-    }
-
-    public int getId(){
-        return comics.getId();
     }
 }
