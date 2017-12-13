@@ -3,8 +3,10 @@ package fr.iut.iem.comics.data.repository;
 import java.util.List;
 
 import fr.iut.iem.comics.data.manager.ComicsApiManager;
+import fr.iut.iem.comics.data.manager.ComicsCacheManager;
 import fr.iut.iem.comics.data.model.remote.Comics;
 import rx.Observable;
+import rx.functions.Action1;
 import rx.functions.Func0;
 import rx.functions.Func1;
 
@@ -15,14 +17,25 @@ import rx.functions.Func1;
 public class ComicsRepository {
 
     private ComicsApiManager comicsApiManager;
-    //private ComicsCacheManager comicsCacheManager;
+    private ComicsCacheManager comicsCacheManager;
 
-    public ComicsRepository(ComicsApiManager comicsApiManager) {
+    public ComicsRepository(ComicsApiManager comicsApiManager, ComicsCacheManager comicsCacheManager) {
         this.comicsApiManager = comicsApiManager;
+        this.comicsCacheManager = comicsCacheManager;
     }
 
     public Observable<List<Comics>> getComicsList() {
-        return getApi();
+        return getCache().onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Comics>>>() {
+            @Override
+            public Observable<? extends List<Comics>> call(Throwable throwable) {
+                return getApi().doOnNext(new Action1<List<Comics>>() {
+                    @Override
+                    public void call(List<Comics> comicsList) {
+                        comicsCacheManager.setComicsList(comicsList);
+                    }
+                });
+            }
+        });
     }
 
     public Observable<Comics> getComicsById(final int id) {
@@ -30,6 +43,15 @@ public class ComicsRepository {
             @Override
             public Comics call(List<Comics> comicsList) {
                 return findComicsWithId(comicsList, id);
+            }
+        });
+    }
+
+    private  Observable<List<Comics>> getCache() {
+        return  Observable.defer(new Func0<Observable<List<Comics>>>() {
+            @Override
+            public Observable<List<Comics>> call() {
+                return Observable.just(comicsCacheManager.getComicsList());
             }
         });
     }
