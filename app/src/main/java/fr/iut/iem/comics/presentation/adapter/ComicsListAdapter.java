@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import fr.iut.iem.comics.data.model.remote.Comics;
+import fr.iut.iem.comics.presentation.listener.ComicsListListener;
+import fr.iut.iem.comics.presentation.listener.ComicsNavigatorListener;
 import fr.iut.iem.comics.presentation.viewholder.ComicsListViewHolder;
+import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
 
 /**
  * Created by iem on 12/12/2017.
@@ -16,13 +19,15 @@ import fr.iut.iem.comics.presentation.viewholder.ComicsListViewHolder;
 public class ComicsListAdapter extends RecyclerView.Adapter<ComicsListViewHolder> {
 
     private final Context context;
-    private List<Comics> comicsList;
+    private final ComicsListListener comicsListListener;
+    private List<ComicsViewModel> comicsList;
 
-    public ComicsListAdapter(Context context){
+    public ComicsListAdapter(Context context, ComicsListListener comicsListListener){
         this.context = context;
+        this.comicsListListener = comicsListListener;
     }
 
-    public void setComicsList(List<Comics> comicsList) {
+    public void setComicsList(List<ComicsViewModel> comicsList) {
         this.comicsList = comicsList;
     }
 
@@ -33,7 +38,7 @@ public class ComicsListAdapter extends RecyclerView.Adapter<ComicsListViewHolder
 
     @Override
     public void onBindViewHolder(ComicsListViewHolder holder, int position) {
-        holder.bind(context,comicsList.get(position));
+        holder.bind(context, comicsList.get(position), comicsListListener);
     }
 
     @Override

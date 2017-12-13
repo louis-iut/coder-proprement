@@ -1,5 +1,6 @@
 package fr.iut.iem.comics.presentation.component;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -8,6 +9,6 @@ import android.view.View;
 
 public interface DisplayError {
 
-    void displayError(View view, int message);
+    void displayError(View view, String message);
 
 }
