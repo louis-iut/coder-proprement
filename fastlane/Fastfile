@@ -24,12 +24,12 @@ platform :android do
   lane :build do
 	test;
 	
-    gradle(task: "assembleDebug");
+    gradle(task: "assembleRelease");
 
     currentDate = DateTime.now;
 	currentDateWithFormat = currentDate.strftime("%d-%m-%Y_%Hh%M");
 	sh("mkdir -p ../output/apk");
-	sh("mv ../app/build/outputs/apk/debug/app-debug.apk ../output/apk/#{currentDateWithFormat}.apk");
+	sh("mv ../app/build/outputs/apk/release/app-release-unsigned.apk ../output/apk/#{currentDateWithFormat}.apk");
 
   end
 
@@ -37,7 +37,7 @@ platform :android do
   lane :test do
   
     gradle(task: "clean");
-    gradle(task: "testDebugUnitTest");
+    gradle(task: "testReleaseUnitTest");
     
   end
   
