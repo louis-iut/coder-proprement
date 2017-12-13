@@ -7,7 +7,9 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout_comics_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/fragment_comics_list_recycler_view_margin"
+        android:layout_marginTop="@dimen/fragment_comics_list_recycler_view_margin">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_comics_list"

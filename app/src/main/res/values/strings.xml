@@ -13,7 +13,7 @@
 
     <!-- comics view-model -->
     <string name="comicsviewmodel_creators_header">Creators \n</string>
-    <string name="comicsviewmodel_page_count"> pages</string>
+    <string name="comicsviewmodel_page_count">" pages"</string>
     <string name="comicsviewmodel_devise">$</string>
 
     <!-- errors -->

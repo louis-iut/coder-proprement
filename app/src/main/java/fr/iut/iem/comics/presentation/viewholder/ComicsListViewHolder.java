@@ -11,7 +11,6 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.iut.iem.comics.R;
-import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.presentation.listener.ComicsListListener;
 import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
 
