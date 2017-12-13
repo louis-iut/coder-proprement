@@ -9,6 +9,6 @@ import android.view.View;
 
 public interface DisplayError {
 
-    void displayError(View view, String message);
+    void displayError(View view, String message, Context context);
 
 }

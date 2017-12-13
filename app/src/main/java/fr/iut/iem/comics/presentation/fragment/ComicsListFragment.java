@@ -62,7 +62,7 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
 
     @Override
     public void displayError() {
-        displayError.displayError(view, getString(R.string.connection_message_error));
+        displayError.displayError(view, getString(R.string.connection_message_error), getActivity());
     }
 
     @Override

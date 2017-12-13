@@ -6,6 +6,7 @@ import fr.iut.iem.comics.data.manager.ComicsApiManagerImpl;
 import fr.iut.iem.comics.data.manager.ComicsCacheManagerImpl;
 import fr.iut.iem.comics.data.repository.ComicsRepository;
 import fr.iut.iem.comics.presentation.component.DisplayError;
+import fr.iut.iem.comics.presentation.component.SnackBarError;
 import fr.iut.iem.comics.presentation.component.ToastError;
 
 /**
@@ -25,10 +26,13 @@ public class ComicsApp extends Application {
         super.onCreate();
 
         application = this;
+
         jsonFile = getString(R.string.json_ok);
         //jsonFile = getString(R.string.json_ko);
+        displayError = new SnackBarError();
+        //displayError = new ToastError();
+
         comicsRepository = new ComicsRepository(new ComicsApiManagerImpl(this, jsonFile), new ComicsCacheManagerImpl());
-        displayError = new ToastError(this);
     }
 
     public static ComicsApp getInstance() {

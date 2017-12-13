@@ -78,7 +78,7 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
 
     @Override
     public void displayError() {
-        displayError.displayError(view, getString(R.string.connection_message_error));
+        displayError.displayError(view, getString(R.string.connection_message_error), getActivity());
     }
 
     private void initPresenter() {
