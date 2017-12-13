@@ -59,7 +59,7 @@ public class ComicsViewModel {
     }
 
     public String getPrice() {
-        return comics.getPrice() + "€";
+        return comics.getPrice() + "$";
     }
 
     public String getPageCount() {
@@ -84,5 +84,9 @@ public class ComicsViewModel {
         String creatorsList = new String(creatorsListBuilder);
 
         return creatorsList;
+    }
+
+    public int getId(){
+        return comics.getId();
     }
 }

@@ -35,7 +35,7 @@ public class ComicsNavigator {
         fragmentManager
                 .beginTransaction()
                 .addToBackStack(context.getString(R.string.comics_list_view))
-                .add(R.id.root_layout, (Fragment) comicsListView)
+                .replace(R.id.root_layout, (Fragment) comicsListView)
                 .commit();
 
         currentFragment = COMICS_LIST_FRAGMENT;
