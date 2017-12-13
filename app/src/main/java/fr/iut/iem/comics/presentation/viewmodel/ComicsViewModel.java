@@ -1,5 +1,6 @@
 package fr.iut.iem.comics.presentation.viewmodel;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.text.DateFormat;
@@ -7,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import fr.iut.iem.comics.R;
 import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.data.model.remote.Creator;
 
@@ -16,6 +18,7 @@ import fr.iut.iem.comics.data.model.remote.Creator;
 
 public class ComicsViewModel {
 
+    private static final String TAG = ComicsViewModel.class.getName();
     private Comics comics;
 
     public ComicsViewModel(Comics comics) {
@@ -34,21 +37,22 @@ public class ComicsViewModel {
         return comics.getDiamondCode();
     }
 
-    public String getDate() {
+    public String getDate(Context context) {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+        SimpleDateFormat preFormater = new SimpleDateFormat(context.getString(R.string.json_date_format));
         DateFormat dateFormat = null;
-        SimpleDateFormat postFormater = new SimpleDateFormat("EEE d MMM yyyy");
+        SimpleDateFormat postFormater = new SimpleDateFormat(context.getString(R.string.detail_view_date_format));
         String newDateString = null;
 
         try
         {
-            Date date = simpleDateFormat.parse(comics.getDate());
+            Date date = preFormater.parse(comics.getDate());
             newDateString = postFormater.format(date);
         }
         catch (ParseException e)
         {
-            e.printStackTrace();
+            Log.e(TAG, context.getString(R.string.date_parse_error));
+            return comics.getDate().toString();
         }
 
         return newDateString;
@@ -66,10 +70,10 @@ public class ComicsViewModel {
         return comics.getImage();
     }
 
-    public String getCreators() {
+    public String getCreators(Context context) {
 
         StringBuilder creatorsListBuilder = new StringBuilder();
-        creatorsListBuilder.append("-Creators : \n");
+        creatorsListBuilder.append(context.getString(R.string.comicsviewmodel_creators_header));
         for (Creator creator: comics.getCreators()) {
             creatorsListBuilder.append(creator.getRole());
             creatorsListBuilder.append(" : ");
