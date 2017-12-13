@@ -19,6 +19,7 @@ public class ComicsDetailPresenter {
     private ComicsDetailView comicsDetailView;
     private ComicsNavigatorListener comicsNavigatorListener;
     private ComicsRepository comicsRepository;
+    private String stringToShare;
 
     public ComicsDetailPresenter(ComicsNavigatorListener comicsNavigatorListener,
                                  ComicsRepository comicsRepository,
@@ -46,6 +47,7 @@ public class ComicsDetailPresenter {
 
                     @Override
                     public void onNext(Comics comicsEntity) {
+                        stringToShare = comicsEntity.getImage();
                         comicsDetailView.displayComics(new ComicsViewModel(comicsEntity));
                     }
                 });
@@ -55,7 +57,7 @@ public class ComicsDetailPresenter {
         comicsNavigatorListener.onBackPressed();
     }
 
-    public void shareAction(String url) {
-        comicsNavigatorListener.shareAction(url);
+    public void shareAction() {
+        comicsNavigatorListener.shareAction(stringToShare);
     }
 }

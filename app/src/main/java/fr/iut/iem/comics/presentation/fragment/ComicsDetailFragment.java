@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import fr.iut.iem.comics.ComicsApp;
 import fr.iut.iem.comics.R;
 import fr.iut.iem.comics.presentation.component.DisplayError;
@@ -37,7 +38,7 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
     @BindView(R.id.fragment_detail_date) TextView date;
     @BindView(R.id.fragment_detail_other_data) TextView otherData;
     @BindView(R.id.fragment_detail_credits) TextView credits;
-    @BindView(R.id.fragment_detail_image) ImageView comicsImage;
+    @BindView(R.id.fragment_detail_image) ImageView image;
 
     public static ComicsDetailFragment newInstance(int id) {
         ComicsDetailFragment fragment = new ComicsDetailFragment();
@@ -72,7 +73,7 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
         otherData.setText(formatOtherData(comicsViewModel));
         credits.setText(comicsViewModel.getCreators(getActivity()));
 
-        Picasso.with(getActivity()).load(comicsViewModel.getImage()).into(comicsImage);
+        Picasso.with(getActivity()).load(comicsViewModel.getImage()).into(image);
     }
 
     @Override
@@ -102,5 +103,15 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
                 + comicsViewModel.getDiamondCode();
 
         return otherData;
+    }
+
+    @OnClick(R.id.comics_detail_back_button)
+    public void onToolbarBackButtonClick() {
+        comicsDetailPresenter.backAction();
+    }
+
+    @OnClick(R.id.comics_detail_share_button)
+    public void onToolbarShareButtonClick() {
+        comicsDetailPresenter.shareAction();
     }
 }
