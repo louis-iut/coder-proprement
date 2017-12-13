@@ -18,8 +18,12 @@ public class ComicsCacheManagerImpl implements ComicsCacheManager {
     }
 
     @Override
-    public List<Comics> getComicsList() {
-        return comicsList;
+    public List<Comics> getComicsList() throws RuntimeException{
+        if (!comicsList.isEmpty()) {
+            return comicsList;
+        }
+
+        throw new RuntimeException();
     }
 
     @Override

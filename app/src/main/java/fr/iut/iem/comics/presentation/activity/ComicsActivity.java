@@ -17,6 +17,7 @@ public class ComicsActivity extends AppCompatActivity implements ComicsNavigator
         setContentView(R.layout.activity_comics);
 
         comicsNavigator = new ComicsNavigator(getFragmentManager(), this);
+        displayComicsList();
     }
 
     @Override

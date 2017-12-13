@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import fr.iut.iem.comics.ComicsApp;
 import fr.iut.iem.comics.R;
 import fr.iut.iem.comics.presentation.adapter.ComicsListAdapter;
@@ -32,8 +34,8 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
     private ComicsListPresenter comicsListPresenter;
     private ComicsListAdapter comicsListAdapter;
 
-    RecyclerView comicsListRecyclerView;
-    SwipeRefreshLayout comicsListSwipeRefresh;
+    @BindView(R.id.recycler_view_comics_list) RecyclerView comicsListRecyclerView;
+    @BindView(R.id.swipe_refresh_layout_comics_list) SwipeRefreshLayout comicsListSwipeRefresh;
 
     public static ComicsListFragment newInstance(){
         ComicsListFragment fragment = new ComicsListFragment();
@@ -44,7 +46,7 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.fragment_comics_list, container, false);
-
+        ButterKnife.bind(this,view);
         initPresenter();
         initCoponents();
         initRecyclerView();
@@ -55,7 +57,7 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
 
     @Override
     public void updateList(List<ComicsViewModel> comicsViewModels) {
-
+        comicsListAdapter.setComicsList(comicsViewModels);
     }
 
     @Override

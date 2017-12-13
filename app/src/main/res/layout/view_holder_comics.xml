@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         >
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/fragment_text_view_titre"
+            android:id="@+id/fragment_text_view_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/const_15dp"
             android:text="@string/fragment_text_view_titre"
