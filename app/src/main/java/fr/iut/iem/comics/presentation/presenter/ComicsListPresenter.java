@@ -36,6 +36,10 @@ public class ComicsListPresenter {
         observe(comicsRepository.getComicsList());
     }
 
+    public void getComicsListFromApi() {
+        observe(comicsRepository.getComicsListFromApi());
+    }
+
     private void observe(Observable<List<Comics>> observable) {
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
