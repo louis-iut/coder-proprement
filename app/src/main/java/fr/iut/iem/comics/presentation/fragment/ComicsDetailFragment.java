@@ -1,6 +1,6 @@
 package fr.iut.iem.comics.presentation.fragment;
 
-import android.app.Fragment;
+import  android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -68,9 +68,9 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
     public void displayComics(ComicsViewModel comicsViewModel) {
         title.setText(comicsViewModel.getTitle());
         description.setText(comicsViewModel.getDescription());
-        date.setText(comicsViewModel.getDate());
+        date.setText(comicsViewModel.getDate(getActivity()));
         otherData.setText(formatOtherData(comicsViewModel));
-        credits.setText(comicsViewModel.getCreators());
+        credits.setText(comicsViewModel.getCreators(getActivity()));
 
         Picasso.with(getActivity()).load(comicsViewModel.getImage()).into(comicsImage);
     }
@@ -95,9 +95,9 @@ public class ComicsDetailFragment extends Fragment implements ComicsDetailView {
     }
 
     private String formatOtherData(ComicsViewModel comicsViewModel) {
-        String otherData = comicsViewModel.getPrice()
+        String otherData = comicsViewModel.getPrice(getActivity())
                 + ", "
-                + comicsViewModel.getPageCount()
+                + comicsViewModel.getPageCount(getActivity())
                 + " - "
                 + comicsViewModel.getDiamondCode();
 
