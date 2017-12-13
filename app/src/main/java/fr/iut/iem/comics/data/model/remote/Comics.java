@@ -39,6 +39,18 @@ public class Comics {
     @Expose
     private List<Creator> creators = null;
 
+    public Comics(int id, String title, String description, String diamondCode, String date, double price, int pageCount, String image, List<Creator> creators) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.diamondCode = diamondCode;
+        this.date = date;
+        this.price = price;
+        this.pageCount = pageCount;
+        this.image = image;
+        this.creators = creators;
+    }
+
     public int getId() {
         return id;
     }
