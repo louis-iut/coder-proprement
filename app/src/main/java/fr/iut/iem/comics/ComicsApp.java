@@ -3,6 +3,7 @@ package fr.iut.iem.comics;
 import android.app.Application;
 
 import fr.iut.iem.comics.data.manager.ComicsApiManagerImpl;
+import fr.iut.iem.comics.data.manager.ComicsCacheManagerImpl;
 import fr.iut.iem.comics.data.repository.ComicsRepository;
 import fr.iut.iem.comics.presentation.component.DisplayError;
 import fr.iut.iem.comics.presentation.component.ToastError;
@@ -26,7 +27,7 @@ public class ComicsApp extends Application {
         application = this;
         jsonFile = getString(R.string.json_ok);
         //jsonFile = getString(R.string.json_ko);
-        comicsRepository = new ComicsRepository(new ComicsApiManagerImpl(this, jsonFile));
+        comicsRepository = new ComicsRepository(new ComicsApiManagerImpl(this, jsonFile), new ComicsCacheManagerImpl());
         displayError = new ToastError(this);
     }
 

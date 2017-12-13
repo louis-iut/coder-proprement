@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/const_72dp"
+    android:layout_marginTop="@dimen/const_8dp"
+    android:layout_marginBottom="@dimen/const_8dp"
+    >
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/fragment_image_view_image_comics"
+        android:layout_width="@dimen/const_80dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/const_16dp"
+        android:layout_marginRight="@dimen/const_16dp"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/fragment_text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/const_15dp"
+            android:text="@string/fragment_text_view_titre"
+            android:layout_marginTop="@dimen/const_16dp"
+            android:layout_marginRight="@dimen/const_16dp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/fragment_text_view_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/const_15dp"
+            android:text="@string/fragment_text_view_date"
+            android:layout_marginRight="@dimen/const_16dp"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/fragment_text_view_pagecount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/const_15dp"
+            android:text="@string/fragment_text_view_pagecount"
+            android:layout_marginRight="@dimen/const_16dp"
+            android:layout_marginBottom="@dimen/const_16dp"
+            />
+    </LinearLayout>
+</LinearLayout>

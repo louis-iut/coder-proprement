@@ -9,6 +9,9 @@
     <!-- json files -->
     <string name="json_ok">sample-ok.json</string>
     <string name="json_ko">sample-ko.json</string>
+    <string name="fragment_text_view_titre">Titre</string>
+    <string name="fragment_text_view_date">Date</string>
+    <string name="fragment_text_view_pagecount">Pagecount</string>
 
     <!-- comicsviewmodel -->
     <string name="comicsviewmodel_creators_header">"-Creators : '\n'"</string>

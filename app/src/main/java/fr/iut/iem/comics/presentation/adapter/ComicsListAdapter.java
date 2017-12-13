@@ -2,10 +2,13 @@ package fr.iut.iem.comics.presentation.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import fr.iut.iem.comics.R;
 import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.presentation.listener.ComicsListListener;
 import fr.iut.iem.comics.presentation.listener.ComicsNavigatorListener;
@@ -29,11 +32,14 @@ public class ComicsListAdapter extends RecyclerView.Adapter<ComicsListViewHolder
 
     public void setComicsList(List<ComicsViewModel> comicsList) {
         this.comicsList = comicsList;
+        notifyDataSetChanged();
     }
 
     @Override
     public ComicsListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.view_holder_comics, parent, false);
+        return new ComicsListViewHolder(view);
     }
 
     @Override
