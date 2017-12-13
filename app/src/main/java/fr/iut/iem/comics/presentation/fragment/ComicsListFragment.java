@@ -65,6 +65,11 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
         displayError.displayError(view, getString(R.string.connection_message_error));
     }
 
+    @Override
+    public void onClickOnComicsInList(int id) {
+        comicsListPresenter.onClickOnComicsInList(id);
+    }
+
     private void initPresenter() {
         comicsListPresenter = new ComicsListPresenter((ComicsNavigatorListener) getActivity(), ComicsApp.getInstance().getComicsRepository(), this);
         comicsListPresenter.getComicsList();
@@ -84,14 +89,9 @@ public class ComicsListFragment extends Fragment implements ComicsListView, Comi
         comicsListSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                comicsListPresenter.getComicsList();
+                comicsListPresenter.getComicsListFromApi();
                 comicsListSwipeRefresh.setRefreshing(false);
             }
         });
-    }
-
-    @Override
-    public void onClickOnComicsInList(int id) {
-        comicsListPresenter.onClickOnComicsInList(id);
     }
 }

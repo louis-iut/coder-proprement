@@ -24,20 +24,6 @@ public class ComicsRepository {
         this.comicsCacheManager = comicsCacheManager;
     }
 
-    public Observable<List<Comics>> getComicsList() {
-        return getCache().onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Comics>>>() {
-            @Override
-            public Observable<? extends List<Comics>> call(Throwable throwable) {
-                return getApi().doOnNext(new Action1<List<Comics>>() {
-                    @Override
-                    public void call(List<Comics> comicsList) {
-                        comicsCacheManager.setComicsList(comicsList);
-                    }
-                });
-            }
-        });
-    }
-
     public Observable<Comics> getComicsById(final int id) {
         return getComicsList().map(new Func1<List<Comics>, Comics>() {
             @Override
@@ -47,11 +33,20 @@ public class ComicsRepository {
         });
     }
 
-    private  Observable<List<Comics>> getCache() {
-        return  Observable.defer(new Func0<Observable<List<Comics>>>() {
+    public Observable<List<Comics>> getComicsList() {
+        return getCache().onErrorResumeNext(new Func1<Throwable, Observable<? extends List<Comics>>>() {
             @Override
-            public Observable<List<Comics>> call() {
-                return Observable.just(comicsCacheManager.getComicsList());
+            public Observable<? extends List<Comics>> call(Throwable throwable) {
+                return getComicsListFromApi();
+            }
+        });
+    }
+
+    public Observable<List<Comics>> getComicsListFromApi() {
+        return getApi().doOnNext(new Action1<List<Comics>>() {
+            @Override
+            public void call(List<Comics> comicsList) {
+                comicsCacheManager.setComicsList(comicsList);
             }
         });
     }
@@ -61,6 +56,15 @@ public class ComicsRepository {
             @Override
             public Observable<List<Comics>> call() {
                 return Observable.just(comicsApiManager.getComicsList());
+            }
+        });
+    }
+
+    private  Observable<List<Comics>> getCache() {
+        return  Observable.defer(new Func0<Observable<List<Comics>>>() {
+            @Override
+            public Observable<List<Comics>> call() {
+                return Observable.just(comicsCacheManager.getComicsList());
             }
         });
     }
