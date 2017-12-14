@@ -11,14 +11,8 @@ import android.widget.ViewAnimator;
 
 public class ToastError implements DisplayError {
 
-    Context context;
-
-    public ToastError(Context context) {
-        this.context = context;
-    }
-
     @Override
-    public void displayError(View view, String message) {
+    public void displayError(View view, String message, Context context) {
         int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, message, duration);
