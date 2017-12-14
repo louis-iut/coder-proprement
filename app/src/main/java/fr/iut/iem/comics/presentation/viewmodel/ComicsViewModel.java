@@ -55,7 +55,7 @@ public class ComicsViewModel {
         catch (ParseException e)
         {
             Log.e(TAG, context.getString(R.string.date_parse_error));
-            return comics.getDate().toString();
+            return comics.getDate();
         }
 
         return newDateString;
