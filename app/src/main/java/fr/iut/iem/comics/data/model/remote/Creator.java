@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by louis on 10/12/2017.
  */
 
-public class CreatorRemoteEntity {
+public class Creator {
 
     @SerializedName("name")
     @Expose

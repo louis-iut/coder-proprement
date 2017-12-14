@@ -7,6 +7,8 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import fr.iut.iem.comics.presentation.viewmodel.ComicsViewModel;
+
 import static org.junit.Assert.*;
 
 /**
@@ -16,6 +18,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.

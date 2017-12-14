@@ -5,9 +5,10 @@ import java.util.List;
 import fr.iut.iem.comics.data.model.remote.Comics;
 
 /**
- * Created by louis on 10/12/2017.
+ * Created by QuentinGenevois on 13/12/2017.
  */
 
-public interface ComicsApiManager {
+public interface ComicsCacheManager {
     List<Comics> getComicsList();
+    void setComicsList(List<Comics> comicsList);
 }

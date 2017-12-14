@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 import fr.iut.iem.comics.R;
-import fr.iut.iem.comics.data.model.remote.ComicsRemoteEntity;
+import fr.iut.iem.comics.data.model.remote.Comics;
 import fr.iut.iem.comics.data.utils.FileReader;
 
 /**
@@ -21,7 +21,7 @@ public class ComicsApiManagerImpl implements ComicsApiManager {
 
     private Context context;
     private String fileName;
-    private List<ComicsRemoteEntity> comicsList;
+    private List<Comics> comicsList;
 
     public ComicsApiManagerImpl(Context context, String fileName) {
         this.context = context;
@@ -29,7 +29,7 @@ public class ComicsApiManagerImpl implements ComicsApiManager {
     }
 
     @Override
-    public List<ComicsRemoteEntity> getComicsList() {
+    public List<Comics> getComicsList() {
         String json = getJson();
         parseJson(json);
 
@@ -52,9 +52,9 @@ public class ComicsApiManagerImpl implements ComicsApiManager {
     public class ResultEnvelop {
         @SerializedName("results")
         @Expose
-        private List<ComicsRemoteEntity> comicsList = null;
+        private List<Comics> comicsList = null;
 
-        public List<ComicsRemoteEntity> getComicsList() {
+        public List<Comics> getComicsList() {
             return comicsList;
         }
     }
